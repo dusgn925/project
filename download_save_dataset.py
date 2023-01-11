@@ -1,8 +1,8 @@
 import os
 
-import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.datasets import load_iris
+from vis_utils import hist_visualize
 
 iris = load_iris()
 feature_names = iris.feature_names
@@ -24,8 +24,4 @@ species_idx_df = pd.Series(species)
 file_name = 'species_idx.csv'
 species_idx_df.to_csv(os.path.join(save_dir, file_name), header=False)
 
-plt.hist(iris_df['species'])
-plt.xticks(iris_df['species'])
-plt.xlabel("species", fontsize=12)
-plt.ylabel("hist", fontsize=12)
-plt.show()
+hist_visualize(iris_df)
